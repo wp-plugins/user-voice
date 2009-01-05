@@ -2,25 +2,25 @@
 /**
  * Copyright 2008 Chris Abernethy
  *
- * This file is part of User Voice.
+ * This file is part of UserVoice.
  *
- * User Voice is free software: you can redistribute it and/or modify
+ * UserVoice is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * User Voice is distributed in the hope that it will be useful,
+ * UserVoice is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with User Voice.  If not, see <http://www.gnu.org/licenses/>.
+ * along with UserVoice.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
 /**
- * User Voice is a WordPress plugin that makes it easy to incorporate the User Voice customer feedback system on your posts and pages without editing templates.
+ * UserVoice makes it easy to integrate the UserVoice customer feedback system into WordPress without having to directly edit template code.
  */
 class UserVoice
 {
@@ -111,7 +111,7 @@ class UserVoice
 
         // If the plugin version stored in the options structure is older than
         // the current plugin version, initiate the upgrade sequence.
-        if (version_compare($this->getOption('version'), '1.1', '<')) {
+        if (version_compare($this->getOption('version'), '1.2', '<')) {
             $this->_upgrade();
             return;
         }
@@ -150,7 +150,7 @@ class UserVoice
         ));
 
         // Set the default options.
-        $this->setOption('version', '1.1');
+        $this->setOption('version', '1.2');
         $this->_options->save();
     }
 
@@ -196,7 +196,7 @@ class UserVoice
         //    // Do upgrades for version 3.5
         //    $this->setOption('version', '3.5');
         //}
-        $this->setOption('version', '1.1');
+        $this->setOption('version', '1.2');
         $this->_options->save();
     }
 
@@ -217,7 +217,7 @@ class UserVoice
         if (in_array($page, array('page', 'post'))) {
             add_meta_box(
                 attribute_escape('user-voice') // id attribute
-              , wp_specialchars('User Voice')   // metabox title
+              , wp_specialchars('UserVoice')   // metabox title
               , array(&$this, 'renderMetaBox')     // callback function
               , $page                              // page type
             );
