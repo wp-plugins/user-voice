@@ -3,12 +3,12 @@
  * Copyright 2008 Chris Abernethy
  *
  * This file is part of User Voice.
- * 
+ *
  * User Voice is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * User Voice is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with User Voice.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 
 /**
@@ -73,7 +73,7 @@ class UserVoice
      * <pre>
      * UserVoice::run(__FILE__)
      * </pre>
-     * 
+     *
      * @param string $plugin_file The full path to the plugin bootstrap file.
      */
     function run($plugin_file)
@@ -111,7 +111,7 @@ class UserVoice
 
         // If the plugin version stored in the options structure is older than
         // the current plugin version, initiate the upgrade sequence.
-        if (version_compare($this->getOption('version'), '1.0', '<')) {
+        if (version_compare($this->getOption('version'), '1.1', '<')) {
             $this->_upgrade();
             return;
         }
@@ -150,7 +150,7 @@ class UserVoice
         ));
 
         // Set the default options.
-        $this->setOption('version', '1.0');
+        $this->setOption('version', '1.1');
         $this->_options->save();
     }
 
@@ -196,7 +196,7 @@ class UserVoice
         //    // Do upgrades for version 3.5
         //    $this->setOption('version', '3.5');
         //}
-        $this->setOption('version', '1.0');
+        $this->setOption('version', '1.1');
         $this->_options->save();
     }
 
@@ -207,7 +207,7 @@ class UserVoice
     /**
      * Render the meta-boxes for this plugin in the advanced section of both
      * the post and page editing screens.
-     * 
+     *
      * @param string $page The type of page being loaded (page, post, link or comment)
      * @param string $context The context of the meta box (normal, advanced)
      * @param StdClass $object The object representing the page type
@@ -234,6 +234,11 @@ class UserVoice
     {
         global $wpdb;
 
+        // Don't update the UserVoice fields if this is a quick-edit.
+        if (@$_POST['action'] == 'inline-save') {
+            return;
+        }
+
         $wpdb->query(sprintf("
             UPDATE %s
             SET `%s` = '%s'
@@ -250,6 +255,7 @@ class UserVoice
          , $wpdb->escape('user-voice_color'), $wpdb->escape(@$_POST['user-voice_color'])
          , $post_id
         ));
+
     }
 
     /**
@@ -275,7 +281,7 @@ class UserVoice
 
     /**
      * Render the metabox content for this plugin.
-     * 
+     *
      * @param StdClass $object The object representing the page type
      * @param array $box An array containing the id, title and callback used when
      *                   registering the meta box being displayed.

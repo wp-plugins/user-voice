@@ -3,7 +3,7 @@
  * Plugin Name: User Voice
  * Plugin URI:  http://www.chrisabernethy.com/wordpress-plugins/user-voice/
  * Description: User Voice is a WordPress plugin that makes it easy to incorporate the User Voice customer feedback system on your posts and pages without editing templates.
- * Version:     1.0
+ * Version:     1.1
  * Author:      Chris Abernethy
  * Author URI:  http://www.chrisabernethy.com/
  * 

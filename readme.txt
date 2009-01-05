@@ -3,8 +3,8 @@ Contributors: Brownoxford
 Donate link: http://www.chrisabernethy.com/donate/
 Tags: post, pages, feedback, contact, user voice, bug reports, report bugs, feature requests, request features
 Requires at least: 2.6
-Tested up to: 2.6.3
-Stable tag: 1.0
+Tested up to: 2.7
+Stable tag: 1.1
 
 User Voice is a WordPress plugin that makes it easy to incorporate the User Voice customer feedback system on your posts and pages without editing templates.
 
@@ -36,9 +36,7 @@ Installing User Voice is easy:
 
 == Screenshots ==
 
-1. This screenshot shows the User Voice options screen.
-2. This screenshot shows the Write Post interface where global settings can be overridden for a single post.
-3. This screenshot is from the Manage Posts interface. The 'Visibility' column shows the visibility status for each listed post.
+1. This screenshot shows the User Voice meta-box that is displayed for each post and page.
 
 == More Information ==
 
