@@ -111,7 +111,7 @@ class UserVoice
 
         // If the plugin version stored in the options structure is older than
         // the current plugin version, initiate the upgrade sequence.
-        if (version_compare($this->getOption('version'), '1.2', '<')) {
+        if (version_compare($this->getOption('version'), '1.3', '<')) {
             $this->_upgrade();
             return;
         }
@@ -150,7 +150,7 @@ class UserVoice
         ));
 
         // Set the default options.
-        $this->setOption('version', '1.2');
+        $this->setOption('version', '1.3');
         $this->_options->save();
     }
 
@@ -196,7 +196,7 @@ class UserVoice
         //    // Do upgrades for version 3.5
         //    $this->setOption('version', '3.5');
         //}
-        $this->setOption('version', '1.2');
+        $this->setOption('version', '1.3');
         $this->_options->save();
     }
 
@@ -234,7 +234,7 @@ class UserVoice
     {
         global $wpdb;
 
-        // Don't update the UserVoice fields if this is a quick-edit.
+        // Don't update the wp_posts fields if this is a quick-edit.
         if (@$_POST['action'] == 'inline-save') {
             return;
         }

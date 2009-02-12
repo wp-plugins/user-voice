@@ -3,8 +3,8 @@ Contributors: Brownoxford
 Donate link: http://www.chrisabernethy.com/donate/
 Tags: post, pages, feedback, contact, uservoice, user voice, bug reports, report bugs, feature requests, request features
 Requires at least: 2.6
-Tested up to: 2.7
-Stable tag: 1.2
+Tested up to: 2.7.1
+Stable tag: 1.3
 
 UserVoice makes it easy to integrate the UserVoice customer feedback system into WordPress without having to directly edit template code.
 
